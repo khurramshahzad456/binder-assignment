@@ -1,0 +1,29 @@
+{
+	"data": [
+		{
+			"id": "1000",
+			"authorName": "John Doe",
+			"title": "The Complete Angular Developer Course",
+			"description": "Product Description",
+			"image": "angular.png",
+			"actualPrice": "₹1099",
+			"discountPercentage": 6.5,
+			"category": "Angular",
+			"wishlist": false,
+			"cart": false
+		},
+		{
+			"id": "1001",
+			"authorName": "Chris Albert",
+			"title": "Build Responsive Websites with HTML5 and CSS",
+			"description": "Product Description",
+			"image": "html.jpg",
+			"actualPrice": "₹899",
+			"discountPercentage": 7.2,
+			"category": "HTML, CSS",
+			"wishlist": false,
+			"cart": false
+		}
+	
+	]
+}

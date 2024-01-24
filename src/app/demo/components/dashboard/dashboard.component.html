@@ -1,0 +1,39 @@
+<div class="banner">
+    <h3>
+        Discover Latest Courses on Angular
+    </h3>
+</div>
+
+<div class="grid grid-nogutter">
+    <div class="col-12 md:col-4" *ngFor="let course of courses">
+        <div class="card m-3 border-1 surface-border">
+            <div class="flex flex-wrap gap-2 align-items-center justify-content-between mb-2">
+                <div class="flex align-items-center">
+                    <i class="pi pi-user mr-2 text-2xl"></i>
+                    <span class="font-semibold ">{{course.authorName}}</span>
+                </div>
+                <span class="flex align-items-center">
+                    <i class="pi pi-tag text-2xl mr-2"></i> <span
+                        class="font-semibold">{{course.category}}</span> </span>
+            </div>
+            <div class="flex flex-column align-items-center text-center mb-3">
+                <img [src]="'assets/demo/images/courses/' + course.image" [alt]="course.name"
+                    class="w-9  my-3 mx-0" style="height: 15rem;
+                    object-fit: contain;" />
+                <div class="text-2xl font-bold mb-3">{{course.title}}</div>
+            </div>
+            <hr>
+            <div class="flex align-items-center justify-content-between">
+                <div>
+                    <span class="text-2xl font-semibold">Price: {{course.actualPrice}}</span>
+                    <br>
+                    <small>Discount {{course.discountPercentage}}%</small>
+                </div>
+                <span class="flex align-items-center">
+                    <i class="pi pi-shopping-cart text-2xl cursor-pointer mr-4"></i>
+                    <i class="pi pi-heart text-2xl cursor-pointer"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
