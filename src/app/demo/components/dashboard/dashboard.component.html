@@ -13,50 +13,48 @@
 </div>
 <div class="grid">
     <div class="col-12">
-        <div class="card">
-            <p-dataView #dv [value]="courses" [paginator]="true" [rows]="6" layout="grid" sortField="actualPrice"
-                [sortOrder]="sortOrder">
-                <ng-template let-courses pTemplate="gridItem">
-                    <div class="grid grid-nogutter">
-                        <div class="col-12 md:col-4" *ngFor="let course of courses | courseFilter: searchValue">
-                            <div class="card m-3 border-1 surface-border">
-                                <div class="flex flex-wrap gap-2 align-items-center justify-content-between mb-2">
-                                    <div class="flex align-items-center">
-                                        <i class="pi pi-user mr-2 text-2xl"></i>
-                                        <span class="font-semibold ">{{course.authorName}}</span>
-                                    </div>
-                                    <span class="flex align-items-center">
-                                        <i class="pi pi-tag text-2xl mr-2"></i> <span
-                                            class="font-semibold">{{course.category}}</span>
-                                    </span>
+        <p-dataView #dv [value]="courses" [paginator]="true" [rows]="6" layout="grid" sortField="actualPrice"
+            [sortOrder]="sortOrder">
+            <ng-template let-courses pTemplate="gridItem">
+                <div class="grid grid-nogutter">
+                    <div class="col-12 md:col-6 lg:col-4 sm:col-12" *ngFor="let course of courses | courseFilter: searchValue">
+                        <div class="card m-3 border-1 surface-border">
+                            <div class="flex flex-wrap gap-2 align-items-center justify-content-between mb-2">
+                                <div class="flex align-items-center">
+                                    <i class="pi pi-user mr-2 text-2xl"></i>
+                                    <span class="font-semibold ">{{course.authorName}}</span>
                                 </div>
-                                <div class="flex flex-column align-items-center text-center mb-3">
-                                    <img [src]="'assets/demo/images/courses/' + course.image" [alt]="course.name"
-                                        class="w-9  my-3 mx-0" style="height: 15rem;
+                                <span class="flex align-items-center">
+                                    <i class="pi pi-tag text-2xl mr-2"></i> <span
+                                        class="font-semibold">{{course.category}}</span>
+                                </span>
+                            </div>
+                            <div class="flex flex-column align-items-center text-center mb-3">
+                                <img [src]="'assets/demo/images/courses/' + course.image" [alt]="course.name"
+                                    class="w-9  my-3 mx-0" style="height: 15rem;
                                 object-fit: contain;" />
-                                    <div class="text-2xl font-bold mb-3">{{course.title}}</div>
+                                <div class="text-2xl font-bold mb-3">{{course.title}}</div>
+                            </div>
+                            <hr>
+                            <div class="flex align-items-center justify-content-between">
+                                <div>
+                                    <span class="text-2xl font-semibold">Price: ₹{{course.actualPrice}}</span>
+                                    <br>
+                                    <small *ngIf="course.discountPercentage">Discount
+                                        {{course.discountPercentage}}%</small>
                                 </div>
-                                <hr>
-                                <div class="flex align-items-center justify-content-between">
-                                    <div>
-                                        <span class="text-2xl font-semibold">Price: ₹{{course.actualPrice}}</span>
-                                        <br>
-                                        <small *ngIf="course.discountPercentage">Discount {{course.discountPercentage}}%</small>
-                                    </div>
-                                    <span class="flex align-items-center">
-                                        <i class="pi pi-shopping-cart text-2xl cursor-pointer mr-4"></i>
-                                        <i class=" text-2xl cursor-pointer"
-                                            [ngClass]="course.wishlist ? 'pi pi-heart-fill red':'pi pi-heart'"
-                                            (click)="addToWishList(course)"></i>
-                                    </span>
-                                </div>
+                                <span class="flex align-items-center">
+                                    <i class="pi pi-shopping-cart text-2xl cursor-pointer mr-4"></i>
+                                    <i class=" text-2xl cursor-pointer"
+                                        [ngClass]="course.wishlist ? 'pi pi-heart-fill red':'pi pi-heart'"
+                                        (click)="addToWishList(course)"></i>
+                                </span>
                             </div>
                         </div>
                     </div>
-                </ng-template>
-            </p-dataView>
-        </div>
+                </div>
+            </ng-template>
+        </p-dataView>
     </div>
-
 
 </div>

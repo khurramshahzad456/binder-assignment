@@ -1,4 +1,4 @@
-<p-sidebar [visible]="showModal$|async" position="right" styleClass="w-50rem" [showCloseIcon]="false"
+<p-sidebar [visible]="showModal$|async" position="right" [showCloseIcon]="false"
     [ngStyle]="{'display': (showModal$|async) ? 'flex' :'none' }">
     <div class="flex justify-content-between mb-2">
         <h3>Wishlist</h3>
@@ -21,12 +21,14 @@
                             <i class="pi pi-heart-fill text-red-500 text-xl"></i>
 
                         </div>
-                        <i class="pi pi-times text-xl cursor-pointer"></i>
+                        <i class="pi pi-times text-xl cursor-pointer" (click)="deleteWishList(course)"></i>
                     </div>
 
                 </div>
-                <span class="text-green-500 font-medium">24 new </span>
-                <span class="text-500">since last visit</span>
+                <div class="flex align-items-center">
+                    <i class="pi pi-tag mr-2 text-xl"></i>
+                    <span class="font-semibold ">{{course.category}}</span>
+                </div>
             </div>
         </div>
         <div class="col-12" *ngIf="!(wishList$ |async).length">

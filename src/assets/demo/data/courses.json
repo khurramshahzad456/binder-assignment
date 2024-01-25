@@ -27,11 +27,11 @@
 		{
 			"id": "1002",
 			"authorName": "Albert Doe",
-			"title": "React Native",
+			"title": "The Complete React Native Course",
 			"description": "Coourse Description",
 			"image": "native.png",
 			"actualPrice": 750,
-			"discountPercentage":0,
+			"discountPercentage":3,
 			"category": "React",
 			"wishlist": false,
 			"cart": false

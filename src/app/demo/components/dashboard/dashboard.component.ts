@@ -29,13 +29,22 @@ export class DashboardComponent implements OnInit {
     }
 
     addToWishList(course: Courses) {
-        course.wishlist = true;
-        this._wishListService.setWishList(course);
-        this._messageService.add({
-            severity: 'success',
-            summary: 'Wishlist',
-            detail: `${course.title} added to your wishlist`,
-        });
+        course.wishlist = !course.wishlist;
+        if (course.wishlist) {
+            this._wishListService.setWishList(course);
+            this._messageService.add({
+                severity: 'success',
+                summary: 'Wishlist',
+                detail: `${course.title} added to your wishlist`,
+            });
+        } else {
+            this._wishListService.deleteWishList(course);
+            this._messageService.add({
+                severity: 'success',
+                summary: 'Wishlist',
+                detail: `${course.title} removed from your wishlist`,
+            });
+        }
     }
 
     sortCourses() {

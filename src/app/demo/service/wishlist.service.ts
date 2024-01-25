@@ -21,6 +21,14 @@ export class WishlistService {
         this.wishList$.next(newWishlist);
     }
 
+    deleteWishList(course: Courses) {
+        let newWishlist = this.wishList$.value;
+        debugger
+        const index = newWishlist.findIndex((x) => x.id == course.id);
+        newWishlist=newWishlist.splice(index, 0);
+        this.wishList$.next(newWishlist);
+    }
+
     getWishList(): Observable<Courses[]> {
         return this.wishList$;
     }
