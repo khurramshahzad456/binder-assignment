@@ -9,7 +9,9 @@ import { ButtonModule } from 'primeng/button';
 import { StyleClassModule } from 'primeng/styleclass';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { DashboardsRoutingModule } from './dashboard-routing.module';
-
+import { InputTextModule } from 'primeng/inputtext';
+import { CourseFilterPipe } from '../../pipes/search.pipe';
+import { DataViewModule } from 'primeng/dataview';
 @NgModule({
     imports: [
         CommonModule,
@@ -20,8 +22,10 @@ import { DashboardsRoutingModule } from './dashboard-routing.module';
         StyleClassModule,
         PanelMenuModule,
         ButtonModule,
-        DashboardsRoutingModule
+        InputTextModule,
+        DashboardsRoutingModule,
+        DataViewModule
     ],
-    declarations: [DashboardComponent]
+    declarations: [DashboardComponent,CourseFilterPipe]
 })
 export class DashboardModule { }

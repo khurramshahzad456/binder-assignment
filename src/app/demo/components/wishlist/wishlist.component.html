@@ -1,72 +1,45 @@
 <p-sidebar [visible]="showModal$|async" position="right" styleClass="w-50rem" [showCloseIcon]="false"
     [ngStyle]="{'display': (showModal$|async) ? 'flex' :'none' }">
     <div class="flex justify-content-between mb-2">
-        <h3>WishList</h3>
+        <h3>Wishlist</h3>
         <i class="pi pi-times cursor-pointer" style="font-size: 1rem" (click)="closeModal()"></i>
     </div>
     <div class="grid">
-        <div class="col-12 lg:col-6 xl:col-3">
+        <div class="col-12" *ngFor="let course of wishList$ |async">
             <div class="card mb-0">
                 <div class="flex justify-content-between mb-3">
                     <div>
-                        <span class="block text-500 font-medium mb-3">Orders</span>
-                        <div class="text-900 font-medium text-xl">152</div>
+                        <div class="flex align-items-center mb-3">
+                            <i class="pi pi-user mr-2 text-xl"></i>
+                            <span class="font-semibold ">{{course.authorName}}</span>
+                        </div>
+                        <div class="text-900 font-medium text-xl">{{course.title}}</div>
                     </div>
-                    <div class="flex align-items-center justify-content-center bg-blue-100 border-round"
-                        [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
-                        <i class="pi pi-shopping-cart text-blue-500 text-xl"></i>
+                    <div class="flex align-items-center">
+                        <div class="flex align-items-center justify-content-center bg-red-100 border-round mr-2"
+                            [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
+                            <i class="pi pi-heart-fill text-red-500 text-xl"></i>
+
+                        </div>
+                        <i class="pi pi-times text-xl cursor-pointer"></i>
                     </div>
+
                 </div>
                 <span class="text-green-500 font-medium">24 new </span>
                 <span class="text-500">since last visit</span>
             </div>
         </div>
-        <div class="col-12 lg:col-6 xl:col-3">
+        <div class="col-12" *ngIf="!(wishList$ |async).length">
             <div class="card mb-0">
-                <div class="flex justify-content-between mb-3">
-                    <div>
-                        <span class="block text-500 font-medium mb-3">Revenue</span>
-                        <div class="text-900 font-medium text-xl">$2.100</div>
+                <div class="flex justify-content-center align-items-center flex-column">
+                    <div class="flex align-items-center justify-content-center bg-red-100 border-round mr-2"
+                        [ngStyle]="{width: '3.5rem', height: '3.5rem'}">
+                        <i class="pi pi-inbox text-red-500 text-2xl"></i>
                     </div>
-                    <div class="flex align-items-center justify-content-center bg-orange-100 border-round"
-                        [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
-                        <i class="pi pi-map-marker text-orange-500 text-xl"></i>
-                    </div>
+                    <h3>
+                        Oopsss Your wishlist is empty
+                    </h3>
                 </div>
-                <span class="text-green-500 font-medium">%52+ </span>
-                <span class="text-500">since last week</span>
-            </div>
-        </div>
-        <div class="col-12 lg:col-6 xl:col-3">
-            <div class="card mb-0">
-                <div class="flex justify-content-between mb-3">
-                    <div>
-                        <span class="block text-500 font-medium mb-3">Customers</span>
-                        <div class="text-900 font-medium text-xl">28441</div>
-                    </div>
-                    <div class="flex align-items-center justify-content-center bg-cyan-100 border-round"
-                        [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
-                        <i class="pi pi-inbox text-cyan-500 text-xl"></i>
-                    </div>
-                </div>
-                <span class="text-green-500 font-medium">520 </span>
-                <span class="text-500">newly registered</span>
-            </div>
-        </div>
-        <div class="col-12 lg:col-6 xl:col-3">
-            <div class="card mb-0">
-                <div class="flex justify-content-between mb-3">
-                    <div>
-                        <span class="block text-500 font-medium mb-3">Comments</span>
-                        <div class="text-900 font-medium text-xl">152 Unread</div>
-                    </div>
-                    <div class="flex align-items-center justify-content-center bg-purple-100 border-round"
-                        [ngStyle]="{width: '2.5rem', height: '2.5rem'}">
-                        <i class="pi pi-comment text-purple-500 text-xl"></i>
-                    </div>
-                </div>
-                <span class="text-green-500 font-medium">85 </span>
-                <span class="text-500">responded</span>
             </div>
         </div>
     </div>

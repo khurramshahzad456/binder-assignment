@@ -3,10 +3,11 @@ export interface Courses {
     authorName?: string;
     title?: string;
     description?: string;
-    actualPrice?: string;
-    discountPercentage?: string;
+    actualPrice?: number;
+    discountPercentage?: number;
     wishlist?: boolean;
     cart?: boolean;
     image?: string;
+    afterDiscount:number
     category?:string
 }

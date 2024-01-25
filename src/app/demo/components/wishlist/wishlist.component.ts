@@ -10,8 +10,10 @@ import { MessageService } from 'primeng/api';
 })
 export class WishlistComponent {
     showModal$: Observable<boolean>;
+    wishList$: Observable<any>;
     constructor(private _wishListService: WishlistService) {
         this.showModal$ = this._wishListService.showWishListModal$;
+        this.wishList$ = this._wishListService.getWishList();
     }
 
     closeModal() {

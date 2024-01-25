@@ -27,7 +27,7 @@ import { MessageService } from 'primeng/api';
             useClass: PathLocationStrategy,
         },
         CoursesService,
-        MessageService
+        MessageService,
     ],
     bootstrap: [AppComponent],
 })
