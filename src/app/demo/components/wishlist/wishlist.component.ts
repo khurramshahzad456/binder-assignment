@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { WishlistService } from '../../service/wishlist.service';
 import { Observable } from 'rxjs';
+import { MessageService } from 'primeng/api';
 @Component({
     selector: 'app-wishlist',
     templateUrl: './wishlist.component.html',
