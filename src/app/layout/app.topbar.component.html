@@ -10,7 +10,7 @@
     </button>
 
     <div #topbarmenu class="layout-topbar-menu" [ngClass]="{'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible}">
-        <button class="p-link layout-topbar-button">
+        <button class="p-link layout-topbar-button" (click)="openWishListModal()">
             <i class="pi pi-heart mr-2"></i>
             <span>Favourite</span>
         </button>
