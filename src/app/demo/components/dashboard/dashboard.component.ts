@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Courses } from '../../model/course';
 import { CoursesService } from '../../service/course.service';
-import { WishlistService } from '../../service/wishlist.service';
+import { WishlistService } from '../../service/wishlist/wishlist.service';
 import { MessageService } from 'primeng/api';
+import { CartService } from '../../service/cart/cart.service';
 @Component({
     templateUrl: './dashboard.component.html',
 })
@@ -14,7 +15,8 @@ export class DashboardComponent implements OnInit {
     constructor(
         private _courseService: CoursesService,
         private _wishListService: WishlistService,
-        private _messageService: MessageService
+        private _messageService: MessageService,
+        private _cartListService: CartService
     ) {}
 
     ngOnInit() {
@@ -45,6 +47,24 @@ export class DashboardComponent implements OnInit {
                 detail: `${course.title} removed from your wishlist`,
             });
         }
+    }
+
+    addToCart(course: Courses) {
+        if (course.cart) {
+            this._messageService.add({
+                severity: 'error',
+                summary: 'Already in Cart',
+                detail: `${course.title} already in your cart`,
+            });
+            return
+        }
+        course.cart = true;
+        this._cartListService.setCartList(course);
+        this._messageService.add({
+            severity: 'success',
+            summary: 'Cart',
+            detail: `${course.title} added to your cart`,
+        });
     }
 
     sortCourses() {

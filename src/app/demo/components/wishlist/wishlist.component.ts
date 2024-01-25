@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WishlistService } from '../../service/wishlist.service';
+import { WishlistService } from '../../service/wishlist/wishlist.service';
 import { Observable } from 'rxjs';
 import { MessageService } from 'primeng/api';
 import { Courses } from '../../model/course';

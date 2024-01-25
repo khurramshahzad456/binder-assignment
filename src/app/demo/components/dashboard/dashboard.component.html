@@ -17,7 +17,8 @@
             [sortOrder]="sortOrder">
             <ng-template let-courses pTemplate="gridItem">
                 <div class="grid grid-nogutter">
-                    <div class="col-12 md:col-6 lg:col-4 sm:col-12" *ngFor="let course of courses | courseFilter: searchValue">
+                    <div class="col-12 md:col-6 lg:col-4 sm:col-12"
+                        *ngFor="let course of courses | courseFilter: searchValue">
                         <div class="card m-3 border-1 surface-border">
                             <div class="flex flex-wrap gap-2 align-items-center justify-content-between mb-2">
                                 <div class="flex align-items-center">
@@ -30,7 +31,7 @@
                                 </span>
                             </div>
                             <div class="flex flex-column align-items-center text-center mb-3">
-                                <img [src]="'assets/demo/images/courses/' + course.image" [alt]="course.name"
+                                <img [src]="'assets/demo/images/courses/' + course.image" [alt]="course.title"
                                     class="w-9  my-3 mx-0" style="height: 15rem;
                                 object-fit: contain;" />
                                 <div class="text-2xl font-bold mb-3">{{course.title}}</div>
@@ -44,7 +45,8 @@
                                         {{course.discountPercentage}}%</small>
                                 </div>
                                 <span class="flex align-items-center">
-                                    <i class="pi pi-shopping-cart text-2xl cursor-pointer mr-4"></i>
+                                    <i class="pi pi-shopping-cart text-2xl cursor-pointer mr-4"
+                                        (click)="addToCart(course)"></i>
                                     <i class=" text-2xl cursor-pointer"
                                         [ngClass]="course.wishlist ? 'pi pi-heart-fill red':'pi pi-heart'"
                                         (click)="addToWishList(course)"></i>

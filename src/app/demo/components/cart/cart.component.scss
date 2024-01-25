@@ -1,0 +1,14 @@
+::ng-deep .p-component-overlay {
+    display: none !important;
+}
+
+::ng-deep .p-sidebar{
+    width: 50dvw !important;
+}
+
+
+@media only screen and (max-width: 768px) {
+    ::ng-deep .p-sidebar {
+        width: 100dvw !important;
+    }
+}

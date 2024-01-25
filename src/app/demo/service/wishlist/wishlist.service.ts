@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Courses } from '../model/course';
+import { Courses } from '../../model/course';
 
 @Injectable({
     providedIn: 'root',
@@ -23,7 +23,6 @@ export class WishlistService {
 
     deleteWishList(course: Courses) {
         let newWishlist = this.wishList$.value;
-        debugger
         const index = newWishlist.findIndex((x) => x.id == course.id);
         newWishlist=newWishlist.splice(index, 0);
         this.wishList$.next(newWishlist);

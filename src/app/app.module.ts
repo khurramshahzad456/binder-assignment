@@ -12,8 +12,9 @@ import { WishlistComponent } from './demo/components/wishlist/wishlist.component
 import { SidebarModule } from 'primeng/sidebar';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { CartComponent } from './demo/components/cart/cart.component';
 @NgModule({
-    declarations: [AppComponent, WishlistComponent],
+    declarations: [AppComponent, WishlistComponent, CartComponent],
     imports: [
         CommonModule,
         AppRoutingModule,
