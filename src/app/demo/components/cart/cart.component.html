@@ -8,19 +8,23 @@
         <div class="col-12" *ngFor="let course of cartList$ |async">
             <div class="card mb-0">
                 <div class="flex justify-content-between">
-                    <div class="flex ">
+                    <div class="flex " style="
+                    flex: 0 0 75%;
+                ">
                         <img [src]="'assets/demo/images/courses/' + course.image" [alt]="course.title" class="my-3 mx-0"
                             style="height: 5rem;
                     object-fit: contain;" />
                         <div class="align-self-center ml-4">
                             <div class="text-900 font-medium text-xl">{{course.title}}</div>
-                            <div class="flex align-items-center mb-3">
+                            <div class="flex align-items-center mt-3">
                                 <i class="pi pi-user mr-2 text-xl"></i>
                                 <span class="font-semibold ">{{course.authorName}}</span>
                             </div>
                         </div>
                     </div>
-                    <div class="flex flex-column justify-content-center align-items-end">
+                    <div class="flex flex-column justify-content-center align-items-end" style="
+                    flex: 0 0 25%;
+                ">
 
                         <b class="mb-3">Price : ₹{{course.actualPrice}}</b>
                         <b>Discount % : {{course.discountPercentage}}</b>
@@ -28,11 +32,10 @@
                 </div>
                 <hr>
                 <div class="flex justify-content-between">
-                    <i class="pi pi-trash red text-2xl cursor-pointer mr-4"
-                    (click)="addToCart(course)"></i>
-                <i class=" text-2xl cursor-pointer"
-                    [ngClass]="course.wishlist ? 'pi pi-heart-fill red':'pi pi-heart'"
-                    (click)="addToWishList(course)"></i>
+                    <i class="pi pi-trash red text-2xl cursor-pointer mr-4" (click)="deleteCart(course)"></i>
+                    <i class=" text-2xl cursor-pointer"
+                        [ngClass]="course.wishlist ? 'pi pi-heart-fill red':'pi pi-heart'"
+                        (click)="addToWishList(course)"></i>
                 </div>
             </div>
 

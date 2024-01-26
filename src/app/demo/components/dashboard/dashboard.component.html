@@ -45,7 +45,8 @@
                                         {{course.discountPercentage}}%</small>
                                 </div>
                                 <span class="flex align-items-center">
-                                    <i class="pi pi-shopping-cart text-2xl cursor-pointer mr-4"
+                                    <i class=" text-2xl cursor-pointer mr-4"
+                                        [ngClass]="course.cart ? 'pi pi-shopping-cart text-blue-500':'pi pi-shopping-cart'"
                                         (click)="addToCart(course)"></i>
                                     <i class=" text-2xl cursor-pointer"
                                         [ngClass]="course.wishlist ? 'pi pi-heart-fill red':'pi pi-heart'"
