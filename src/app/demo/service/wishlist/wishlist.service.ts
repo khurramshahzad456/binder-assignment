@@ -24,7 +24,7 @@ export class WishlistService {
     deleteWishList(course: Courses) {
         let newWishlist = this.wishList$.value;
         const index = newWishlist.findIndex((x) => x.id == course.id);
-        newWishlist=newWishlist.splice(index, 0);
+        newWishlist.splice(index, 1);
         this.wishList$.next(newWishlist);
     }
 

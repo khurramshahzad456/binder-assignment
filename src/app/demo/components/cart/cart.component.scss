@@ -2,6 +2,11 @@
     display: none !important;
 }
 
+::ng-deep .p-button {
+    display: flex !important;
+    width: 100%;
+}
+
 ::ng-deep .p-sidebar{
     width: 50dvw !important;
 }

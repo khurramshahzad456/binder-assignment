@@ -23,12 +23,16 @@ export class CartService {
 
     deleteCart(course: Courses) {
         let newCartList = this.cartList$.value;
-        const index = newCartList.findIndex((x) => x.id == course.id);
-        newCartList = newCartList.splice(index, 0);
+        const index = newCartList.findIndex((x) => x.id === course.id);
+        newCartList.splice(index, 1);
         this.cartList$.next(newCartList);
     }
 
     getCartList(): Observable<Courses[]> {
         return this.cartList$;
+    }
+
+    emptyCart() {
+        this.cartList$.next([]);
     }
 }

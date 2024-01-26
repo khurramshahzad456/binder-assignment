@@ -12,6 +12,7 @@ import { WishlistComponent } from './demo/components/wishlist/wishlist.component
 import { SidebarModule } from 'primeng/sidebar';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { ButtonModule } from 'primeng/button';
 import { CartComponent } from './demo/components/cart/cart.component';
 @NgModule({
     declarations: [AppComponent, WishlistComponent, CartComponent],
@@ -21,6 +22,7 @@ import { CartComponent } from './demo/components/cart/cart.component';
         AppLayoutModule,
         SidebarModule,
         ToastModule,
+        ButtonModule
     ],
     providers: [
         {

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Courses } from '../../model/course';
 import { CartService } from '../../service/cart/cart.service';
 import { WishlistService } from '../../service/wishlist/wishlist.service';
@@ -14,6 +14,7 @@ import { WishlistService } from '../../service/wishlist/wishlist.service';
 export class CartComponent {
     showModal$: Observable<boolean>;
     cartList$: Observable<any>;
+    totals: any;
     constructor(
         private _cartListService: CartService,
         private _messageService: MessageService,
@@ -21,6 +22,7 @@ export class CartComponent {
     ) {
         this.showModal$ = this._cartListService.showCartModal$;
         this.cartList$ = this._cartListService.getCartList();
+        this.calculateTotals();
     }
 
     closeModal() {
@@ -55,5 +57,44 @@ export class CartComponent {
                 detail: `${course.title} added to your wishlist`,
             });
         }
+    }
+
+    calculateTotals() {
+        this.cartList$
+            .pipe(
+                // Use the map operator to transform the emitted array of cart items into total price and total discount
+                map((cartItems: Courses[]) => {
+                    // Assuming CartItem has 'price' and 'discountPercentage' properties
+                    const actualPrice = cartItems
+                        .reduce((total, item) => total + item.actualPrice, 0)
+                        .toFixed(2);
+                    const totalDiscount = cartItems
+                        .reduce(
+                            (total, item) =>
+                                total +
+                                (item.actualPrice * item.discountPercentage) /
+                                    100,
+                            0
+                        )
+                        .toFixed(2);
+                    const totalPrice = cartItems
+                        .reduce((total, item) => total + item.afterDiscount, 0)
+                        .toFixed(2);
+                    return { actualPrice, totalDiscount, totalPrice };
+                })
+            )
+            .subscribe((totals) => {
+                this.totals = totals;
+            });
+    }
+
+    checkOut() {
+        this._messageService.add({
+            severity: 'success',
+            summary: 'Checkout',
+            detail: `Your Order has been place. Here is your OrderId 12345`,
+        });
+        this._cartListService.emptyCart();
+        this._cartListService.setShowCartModal(false);
     }
 }

@@ -4,56 +4,89 @@
         <h3>Cart</h3>
         <i class="pi pi-times cursor-pointer" style="font-size: 1rem" (click)="closeModal()"></i>
     </div>
-    <div class="grid">
-        <div class="col-12" *ngFor="let course of cartList$ |async">
-            <div class="card mb-0">
-                <div class="flex justify-content-between">
-                    <div class="flex " style="
+    <div class=" flex flex-column justify-content-between" style="    height: calc(100% - 19%);">
+        <div class="grid" style="flex :0 0 70%; overflow: auto;">
+            <div class="col-12" *ngFor="let course of cartList$ |async">
+                <div class="card mb-0">
+                    <div class="flex justify-content-between">
+                        <div class="flex " style="
                     flex: 0 0 75%;
                 ">
-                        <img [src]="'assets/demo/images/courses/' + course.image" [alt]="course.title" class="my-3 mx-0"
-                            style="height: 5rem;
+                            <img [src]="'assets/demo/images/courses/' + course.image" [alt]="course.title"
+                                class="my-3 mx-0" style="height: 5rem;
                     object-fit: contain;" />
-                        <div class="align-self-center ml-4">
-                            <div class="text-900 font-medium text-xl">{{course.title}}</div>
-                            <div class="flex align-items-center mt-3">
-                                <i class="pi pi-user mr-2 text-xl"></i>
-                                <span class="font-semibold ">{{course.authorName}}</span>
+                            <div class="align-self-center ml-4">
+                                <div class="text-900 font-medium text-xl">{{course.title}}</div>
+                                <div class="flex align-items-center mt-3">
+                                    <i class="pi pi-user mr-2 text-xl"></i>
+                                    <span class="font-semibold ">{{course.authorName}}</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="flex flex-column justify-content-center align-items-end" style="
+                        <div class="flex flex-column justify-content-center align-items-end" style="
                     flex: 0 0 25%;
                 ">
 
-                        <b class="mb-3">Price : ₹{{course.actualPrice}}</b>
-                        <b>Discount % : {{course.discountPercentage}}</b>
+                            <b class="mb-3">Price : ₹{{course.actualPrice}}</b>
+                            <b>Discount % : {{course.discountPercentage}}</b>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="flex justify-content-between">
+                        <i class="pi pi-trash red text-2xl cursor-pointer mr-4" (click)="deleteCart(course)"></i>
+                        <i class=" text-2xl cursor-pointer"
+                            [ngClass]="course.wishlist ? 'pi pi-heart-fill red':'pi pi-heart'"
+                            (click)="addToWishList(course)"></i>
                     </div>
                 </div>
-                <hr>
-                <div class="flex justify-content-between">
-                    <i class="pi pi-trash red text-2xl cursor-pointer mr-4" (click)="deleteCart(course)"></i>
-                    <i class=" text-2xl cursor-pointer"
-                        [ngClass]="course.wishlist ? 'pi pi-heart-fill red':'pi pi-heart'"
-                        (click)="addToWishList(course)"></i>
-                </div>
+
             </div>
 
-        </div>
-        <div class="col-12" *ngIf="!(cartList$ |async).length">
-            <div class="card mb-0">
-                <div class="flex justify-content-center align-items-center flex-column">
-                    <div class="flex align-items-center justify-content-center bg-red-100 border-round mr-2"
-                        [ngStyle]="{width: '3.5rem', height: '3.5rem'}">
-                        <i class="pi pi-shopping-cart text-red-500 text-2xl"></i>
+            <div class="col-12" *ngIf="!(cartList$ |async).length">
+                <div class="card mb-0">
+                    <div class="flex justify-content-center align-items-center flex-column">
+                        <div class="flex align-items-center justify-content-center bg-red-100 border-round mr-2"
+                            [ngStyle]="{width: '3.5rem', height: '3.5rem'}">
+                            <i class="pi pi-shopping-cart text-red-500 text-2xl"></i>
+                        </div>
+                        <h3>
+                            Oopsss Your cart is empty
+                        </h3>
                     </div>
-                    <h3>
-                        Oopsss Your cart is empty
-                    </h3>
                 </div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="col-12" *ngIf="totals?.actualPrice">
+                <div class="card mb-0">
+                    <div class="flex justify-content-between">
+                        <div class="flex flex-column  justify-content-center align-items-start" style="
+                flex: 0 0 50%;
+            ">
+                            <b class="mb-3">Subtotal:</b>
+                            <b class="mb-3">Discount:</b>
+                            <b class="mb-3">Total:</b>
+                        </div>
+                        <div class="flex flex-column justify-content-center align-items-end" style="
+                flex: 0 0 50%;
+            ">
+
+                            <b class="mb-3">{{totals?.actualPrice}}₹</b>
+                            <b class="mb-3">{{totals?.totalDiscount}}₹</b>
+                            <b class="mb-3">{{totals?.totalPrice}}₹</b>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="w-full">
+                        <p-button label="Checkout" icon="pi pi-shopping-cart" class="w-full"
+                            (click)="checkOut()"></p-button>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>
-
-
 </p-sidebar>
