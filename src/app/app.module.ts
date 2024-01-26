@@ -14,15 +14,21 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { CartComponent } from './demo/components/cart/cart.component';
+import { ProfileComponent } from './demo/components/profile/profile.component';
 @NgModule({
-    declarations: [AppComponent, WishlistComponent, CartComponent],
+    declarations: [
+        AppComponent,
+        WishlistComponent,
+        CartComponent,
+        ProfileComponent,
+    ],
     imports: [
         CommonModule,
         AppRoutingModule,
         AppLayoutModule,
         SidebarModule,
         ToastModule,
-        ButtonModule
+        ButtonModule,
     ],
     providers: [
         {

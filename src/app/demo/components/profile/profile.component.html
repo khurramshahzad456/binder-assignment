@@ -1,1 +1,8 @@
-<p>profile works!</p>
+<p-sidebar [visible]="showModal$|async" position="right" [showCloseIcon]="false"
+    [ngStyle]="{'display': (showModal$|async) ? 'flex' :'none' }">
+    <div class="flex justify-content-between mb-2">
+        <h3>Profile</h3>
+        <i class="pi pi-times cursor-pointer" style="font-size: 1rem" (click)="closeModal()"></i>
+    </div>
+    
+</p-sidebar>

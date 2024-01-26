@@ -95,6 +95,6 @@ export class CartComponent {
             detail: `Your Order has been place. Here is your OrderId 12345`,
         });
         this._cartListService.emptyCart();
-        this._cartListService.setShowCartModal(false);
+        this.closeModal();
     }
 }
