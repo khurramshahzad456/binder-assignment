@@ -32,9 +32,10 @@
                             </div>
                             <div class="flex flex-column align-items-center text-center mb-3">
                                 <img [src]="'assets/demo/images/courses/' + course.image" [alt]="course.title"
-                                    class="w-9  my-3 mx-0" style="height: 15rem;
+                                    class="w-9  my-3 mx-0" style="height: 10rem;
                                 object-fit: contain;" />
-                                <div class="text-2xl font-bold mb-3">{{course.title}}</div>
+                                <div class="text-2xl font-bold mb-3 cursor-pointer" [routerLink]="['/course', course.id]">
+                                    {{course.title}}</div>
                             </div>
                             <hr>
                             <div class="flex align-items-center justify-content-between">

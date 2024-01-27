@@ -12,6 +12,8 @@ import { DashboardsRoutingModule } from './dashboard-routing.module';
 import { InputTextModule } from 'primeng/inputtext';
 import { CourseFilterPipe } from '../../pipes/search.pipe';
 import { DataViewModule } from 'primeng/dataview';
+import { CourseDetailComponent } from './course-detail/course-detail.component';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
 @NgModule({
     imports: [
         CommonModule,
@@ -24,8 +26,9 @@ import { DataViewModule } from 'primeng/dataview';
         ButtonModule,
         InputTextModule,
         DashboardsRoutingModule,
-        DataViewModule
+        DataViewModule,
+        BreadcrumbModule
     ],
-    declarations: [DashboardComponent,CourseFilterPipe]
+    declarations: [DashboardComponent, CourseFilterPipe, CourseDetailComponent],
 })
-export class DashboardModule { }
+export class DashboardModule {}

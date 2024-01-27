@@ -4,7 +4,7 @@
 			"id": "1000",
 			"authorName": "John Doe",
 			"title": "The Complete Angular Developer Course",
-			"description": "Coourse Description",
+			"description": "Angular is a web framework that empowers developers to build fast, reliable applications.",
 			"image": "angular.png",
 			"actualPrice": 1099,
 			"discountPercentage": 6.5,
