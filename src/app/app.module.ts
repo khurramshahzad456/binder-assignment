@@ -19,12 +19,16 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
+import { LoginComponent } from './demo/components/login/login.component';
+import { CheckboxModule } from 'primeng/checkbox';
+import { PasswordModule } from 'primeng/password';
 @NgModule({
     declarations: [
         AppComponent,
         WishlistComponent,
         CartComponent,
         ProfileComponent,
+        LoginComponent
     ],
     imports: [
         CommonModule,
@@ -37,7 +41,9 @@ import { DropdownModule } from 'primeng/dropdown';
         FormsModule,
         ReactiveFormsModule,
         InputTextModule,
-        DropdownModule
+        DropdownModule,
+        CheckboxModule,
+        PasswordModule
     ],
     providers: [
         {
