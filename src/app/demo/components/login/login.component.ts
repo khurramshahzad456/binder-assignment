@@ -21,7 +21,7 @@ export class LoginComponent {
     ) {}
 
     signIn() {
-        if (this.username !== 'admin' || this.password == 'dummy@123') {
+        if (this.username !== 'admin' || this.password !== 'dummy@123') {
             this.error = true;
             return;
         }
