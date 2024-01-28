@@ -18,6 +18,7 @@ import { ProfileComponent } from './demo/components/profile/profile.component';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
+import { DropdownModule } from 'primeng/dropdown';
 @NgModule({
     declarations: [
         AppComponent,
@@ -35,7 +36,8 @@ import { InputTextModule } from 'primeng/inputtext';
         MultiSelectModule,
         FormsModule,
         ReactiveFormsModule,
-        InputTextModule
+        InputTextModule,
+        DropdownModule
     ],
     providers: [
         {

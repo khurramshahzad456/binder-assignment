@@ -7,7 +7,7 @@
 
     <div class="grid">
         <div class="col-12 md:col-12">
-            <form class="card" [formGroup]="profileForm">
+            <form class="card" [formGroup]="profileForm" (submit)="saveProfile()">
                 <div class="field">
                     <label htmlFor="dname">Display Name *</label>
                     <input pInputText id="dname" type="text" formControlName="displayName" />
@@ -33,11 +33,16 @@
                     <textarea pInputText id="about" type="text" formControlName="aboutYourself"></textarea>
                 </div>
                 <div class="field">
+                    <label for="studentOrProfessional">Are you a student or a professional? *</label>
+                    <p-dropdown formControlName="studentOrProfessional" [options]="studentOrProfessional"
+                        optionLabel="name" placeholder="Select a City"></p-dropdown>
+                </div>
+                <div class="field">
                     <label htmlFor="role">Mention your role</label>
                     <textarea pInputText id="role" type="text" formControlName="role"></textarea>
                 </div>
 
-                <button type="submit" pButton label="Submit" [disabled]="!profileForm.valid"></button>
+                <button type="submit" pButton label="Submit"  [disabled]="!profileForm.valid"></button>
             </form>
 
         </div>
