@@ -1533,6 +1533,7 @@
         transition: background-color 0.2s, color 0.2s, border-color 0.2s,
             box-shadow 0.2s;
         border-radius: 6px;
+        width: 100% !important;
     }
     .p-multiselect:not(.p-disabled):hover {
         border-color: #6366f1;

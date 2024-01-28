@@ -2,3 +2,21 @@ p-breadcrumb {
     position: relative;
     top: 1rem;
 }
+
+#timer {
+    height: 10rem;
+    width: 100%;
+    background: linear-gradient(90deg, rgba(137, 65, 142, 0.8463760504201681) 12%, rgba(121, 9, 26, 0.7567401960784313) 72%, rgba(255, 0, 236, 0.8071603641456583) 100%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 2rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+
+    p {
+        margin: 0 !important;
+    }
+}

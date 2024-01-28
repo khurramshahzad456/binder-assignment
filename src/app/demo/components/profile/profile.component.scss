@@ -7,7 +7,7 @@
     width: 100%;
 }
 
-::ng-deep .p-sidebar{
+::ng-deep .p-sidebar {
     width: 50dvw !important;
 }
 
@@ -16,4 +16,10 @@
     ::ng-deep .p-sidebar {
         width: 100dvw !important;
     }
+}
+
+input,
+textarea {
+    // height: 3rem;
+    width: 100%;
 }

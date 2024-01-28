@@ -15,6 +15,9 @@ import { MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { CartComponent } from './demo/components/cart/cart.component';
 import { ProfileComponent } from './demo/components/profile/profile.component';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
 @NgModule({
     declarations: [
         AppComponent,
@@ -29,6 +32,10 @@ import { ProfileComponent } from './demo/components/profile/profile.component';
         SidebarModule,
         ToastModule,
         ButtonModule,
+        MultiSelectModule,
+        FormsModule,
+        ReactiveFormsModule,
+        InputTextModule
     ],
     providers: [
         {

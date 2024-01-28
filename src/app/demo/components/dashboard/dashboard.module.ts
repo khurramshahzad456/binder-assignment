@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard.component';
 import { ChartModule } from 'primeng/chart';
 import { MenuModule } from 'primeng/menu';
@@ -14,6 +14,7 @@ import { CourseFilterPipe } from '../../pipes/search.pipe';
 import { DataViewModule } from 'primeng/dataview';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { MultiSelectModule } from 'primeng/multiselect';
 @NgModule({
     imports: [
         CommonModule,
@@ -27,7 +28,8 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
         InputTextModule,
         DashboardsRoutingModule,
         DataViewModule,
-        BreadcrumbModule
+        BreadcrumbModule,
+        
     ],
     declarations: [DashboardComponent, CourseFilterPipe, CourseDetailComponent],
 })

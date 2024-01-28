@@ -7,27 +7,41 @@
 
     <div class="grid">
         <div class="col-12 md:col-12">
-            <div class="card">
-                <h5>Vertical</h5>
+            <form class="card" [formGroup]="profileForm">
                 <div class="field">
-                    <label htmlFor="name1">Name</label>
-                    <input pInputText id="name1" type="text" />
+                    <label htmlFor="dname">Display Name *</label>
+                    <input pInputText id="dname" type="text" formControlName="displayName" />
                 </div>
                 <div class="field">
-                    <label htmlFor="email1">Email</label>
-                    <input pInputText id="email1" type="text" />
+                    <label htmlFor="fname">First Name *</label>
+                    <input pInputText id="fname" type="text" formControlName="firstName" />
                 </div>
                 <div class="field">
-                    <label htmlFor="age1">Age</label>
-                    <input pInputText id="age1" type="text" />
+                    <label htmlFor="lname">Last Name</label>
+                    <input pInputText id="lname" type="text" formControlName="lastName" />
                 </div>
-            </div>
-   
+
+                <div class="field">
+                    <label htmlFor="intrest">Your area of intrest</label>
+
+                    <p-multiSelect [options]="intrests" formControlName="areaOfInterest"
+                        optionLabel="name"></p-multiSelect>
+
+                </div>
+                <div class="field">
+                    <label htmlFor="about">About YourSlef</label>
+                    <textarea pInputText id="about" type="text" formControlName="aboutYourself"></textarea>
+                </div>
+                <div class="field">
+                    <label htmlFor="role">Mention your role</label>
+                    <textarea pInputText id="role" type="text" formControlName="role"></textarea>
+                </div>
+
+                <button type="submit" pButton label="Submit" [disabled]="!profileForm.valid"></button>
+            </form>
+
         </div>
-    
- 
-    
-       
     </div>
-    
+
+
 </p-sidebar>
